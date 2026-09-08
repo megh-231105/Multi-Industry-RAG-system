@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
-const INDUSTRIES = ["Real Estate", "Fintech", "Healthtech", "Hospitality", "Proptech", "Edtech"];
+const INDUSTRIES = ["Healthcare", "Finance", "Traffic", "Manufacturing", "Agriculture", "Legal Services"];
 
 /** Rotating word, same cycler used on the homepage hero. */
 function IndustryCycler() {
@@ -638,38 +638,38 @@ export default function Signup() {
                 <path d="M3 21 L21 3 L21 21 Z" fill="currentColor" />
               </svg>
             </span>
-            Meridian
+            NexusRAG
           </Link>
 
           <div className="auth-visual-mid">
-            <span className="eyebrow">Join the studio</span>
-            <h1>
-              One account,
-              <br />
-              <span className="thin">every</span> industry.
-            </h1>
-            <div className="auth-cycler">
-              Currently building for
-              <IndustryCycler />
+              <span className="eyebrow">Join NexusRAG</span>
+              <h1>
+                One platform,
+                <br />
+                <span className="thin">every</span> industry.
+              </h1>
+              <div className="auth-cycler">
+                RAG-powered answers for
+                <IndustryCycler />
+              </div>
             </div>
-          </div>
 
-          <div className="bubble b1">"almost"</div>
-          <div className="bubble tag b2">Tara</div>
-          <div className="bubble b3">"ship it Friday"</div>
+          <div className="bubble b1">"RAG pipeline ready"</div>
+          <div className="bubble tag b2">Arjun</div>
+          <div className="bubble b3">"query time: 0.3s"</div>
 
           <div className="auth-stats">
             <div className="stat">
-              <div className="num">58</div>
-              <div className="lbl">completed projects</div>
+              <div className="num">25</div>
+              <div className="lbl">industries covered</div>
             </div>
             <div className="stat">
-              <div className="num">6</div>
-              <div className="lbl">industries served</div>
+              <div className="num">10M+</div>
+              <div className="lbl">documents indexed</div>
             </div>
             <div className="stat">
-              <div className="num">19</div>
-              <div className="lbl">awards &amp; features</div>
+              <div className="num">99%</div>
+              <div className="lbl">answer accuracy</div>
             </div>
           </div>
         </div>
@@ -683,11 +683,11 @@ export default function Signup() {
                   <path d="M3 21 L21 3 L21 21 Z" fill="currentColor" />
                 </svg>
               </span>
-              Meridian
+              NexusRAG
             </Link>
 
             <span className="sec-label">Create account</span>
-            <h2>Start your project</h2>
+            <h2>Start querying smarter</h2>
             <div className="sub">
               Already have an account? <Link to="/login">Sign in</Link>
             </div>

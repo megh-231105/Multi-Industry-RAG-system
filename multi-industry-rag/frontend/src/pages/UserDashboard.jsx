@@ -10,89 +10,163 @@ const SUGGESTIONS = [
 ];
 
 const RECENT_CHATS = [
-  { key: "rc1", title: "New chat",                               time: "20 secs ago" },
+  { key: "rc1", title: "New chat", time: "20 secs ago" },
   { key: "rc2", title: "Give me unique name logo for CRM dashboard", time: "45 mins ago" },
-  { key: "rc3", title: "Create SaaS web app categories",         time: "3 hours ago" },
+  { key: "rc3", title: "Create SaaS web app categories", time: "3 hours ago" },
 ];
 
 const HISTORY = [
   {
     group: "Today",
     items: [
-      { key: "h1", title: "New Chat",                              time: "Today, 11:50 pm" },
-      { key: "h2", title: "Give me unique name logo for...",       time: "Today, 11:05 pm" },
-      { key: "h3", title: "Create SaaS web app categori...",       time: "Today, 08:57 pm" },
+      { key: "h1", title: "New Chat", time: "Today, 11:50 pm" },
+      { key: "h2", title: "Give me unique name logo for...", time: "Today, 11:05 pm" },
+      { key: "h3", title: "Create SaaS web app categori...", time: "Today, 08:57 pm" },
     ],
   },
   {
     group: "Yesterday",
     items: [
-      { key: "h4", title: "Custom platform solution",              time: "Yesterday, 09:15 am" },
-      { key: "h5", title: "Investment insights monetizati...",     time: "Yesterday, 07:02 am" },
-      { key: "h6", title: "Give me 10 similar ecommerce...",       time: "Yesterday, 04:50 am" },
-      { key: "h7", title: "5 top ecommerce integration a...",      time: "Yesterday, 04:11 am" },
-      { key: "h8", title: "Create content for privacy poli...",    time: "Yesterday, 02:15 am" },
+      { key: "h4", title: "Custom platform solution", time: "Yesterday, 09:15 am" },
+      { key: "h5", title: "Investment insights monetizati...", time: "Yesterday, 07:02 am" },
+      { key: "h6", title: "Give me 10 similar ecommerce...", time: "Yesterday, 04:50 am" },
+      { key: "h7", title: "5 top ecommerce integration a...", time: "Yesterday, 04:11 am" },
+      { key: "h8", title: "Create content for privacy poli...", time: "Yesterday, 02:15 am" },
     ],
   },
 ];
 
 const INDUSTRIES = [
-  { key: "health",       emoji: "🏥", label: "Health",              areas: "Diagnostics, patient care, medical records" },
-  { key: "finance",      emoji: "💰", label: "Finance",             areas: "Banking, investing, risk & fraud detection" },
-  { key: "traffic",      emoji: "🚦", label: "Traffic",             areas: "Route planning, congestion monitoring, signals" },
-  { key: "manufacturing",emoji: "🏭", label: "Manufacturing",       areas: "Production, quality control, predictive maintenance" },
-  { key: "retail",       emoji: "🛒", label: "Retail & E-commerce", areas: "Shopping, recommendations, inventory" },
-  { key: "logistics",    emoji: "🚚", label: "Logistics & Supply",  areas: "Warehousing, delivery, shipment tracking" },
-  { key: "agriculture",  emoji: "🌾", label: "Agriculture",         areas: "Crop monitoring, irrigation, pest detection" },
-  { key: "energy",       emoji: "⚡", label: "Energy & Utilities",  areas: "Solar, electricity, power management" },
-  { key: "construction", emoji: "🏗️", label: "Construction",       areas: "Site monitoring, safety, project management" },
-  { key: "education",    emoji: "🎓", label: "Education",           areas: "Online learning, tutoring, student assessment" },
-  { key: "hospitality",  emoji: "🏨", label: "Hospitality",         areas: "Hotels, travel planning, customer service" },
-  { key: "food",         emoji: "🍔", label: "Food & Restaurants",  areas: "Restaurant management, food delivery" },
-  { key: "aviation",     emoji: "✈️", label: "Aviation",           areas: "Airport operations, aircraft maintenance" },
-  { key: "maritime",     emoji: "🚢", label: "Maritime",            areas: "Ports, cargo, vessel management" },
-  { key: "railways",     emoji: "🚆", label: "Railways",            areas: "Train operations, maintenance, passenger services" },
-  { key: "realestate",   emoji: "🏢", label: "Real Estate",         areas: "Property management, valuation, smart buildings" },
-  { key: "telecom",      emoji: "📡", label: "Telecommunications",  areas: "Network optimization, customer support" },
-  { key: "itsoftware",   emoji: "💻", label: "IT & Software",       areas: "Cybersecurity, cloud services, automation" },
-  { key: "gaming",       emoji: "🎮", label: "Entertainment",       areas: "Games, streaming, content recommendation" },
-  { key: "legal",        emoji: "⚖️", label: "Legal Services",      areas: "Legal research, contracts, case management" },
-  { key: "insurance",    emoji: "🛡️", label: "Insurance",          areas: "Claims, risk assessment, customer service" },
-  { key: "government",   emoji: "🏛️", label: "Government",         areas: "Citizen services, document processing" },
-  { key: "research",     emoji: "🔬", label: "Research & Science",  areas: "Data analysis, simulations, labs" },
-  { key: "automotive",   emoji: "🚗", label: "Automotive",          areas: "Manufacturing, autonomous systems, maintenance" },
-  { key: "defense",      emoji: "🛩️", label: "Defense & Aerospace", areas: "Aircraft, satellites, mission systems" },
+  { key: "health",        emoji: "🏥", label: "Health",              color: "#22c55e", bg: "#dcfce7", areas: "Diagnostics, patient care, medical records" },
+  { key: "finance",       emoji: "💰", label: "Finance",             color: "#3b82f6", bg: "#dbeafe", areas: "Banking, investing, risk & fraud detection" },
+  { key: "traffic",       emoji: "🚦", label: "Traffic",             color: "#f59e0b", bg: "#fef3c7", areas: "Route planning, congestion monitoring, signals" },
+  { key: "manufacturing", emoji: "🏭", label: "Manufacturing",       color: "#8b5cf6", bg: "#ede9fe", areas: "Production, quality control, predictive maintenance" },
+  { key: "retail",        emoji: "🛒", label: "Retail & E-commerce", color: "#ec4899", bg: "#fce7f3", areas: "Shopping, recommendations, inventory" },
+  { key: "logistics",     emoji: "🚚", label: "Logistics & Supply",  color: "#0ea5e9", bg: "#e0f2fe", areas: "Warehousing, delivery, shipment tracking" },
+  { key: "agriculture",   emoji: "🌾", label: "Agriculture",         color: "#84cc16", bg: "#f7fee7", areas: "Crop monitoring, irrigation, pest detection" },
+  { key: "energy",        emoji: "⚡",  label: "Energy & Utilities",  color: "#eab308", bg: "#fefce8", areas: "Solar, electricity, power management" },
+  { key: "construction",  emoji: "🏗️", label: "Construction",        color: "#f97316", bg: "#fff7ed", areas: "Site monitoring, safety, project management" },
+  { key: "education",     emoji: "🎓", label: "Education",           color: "#6366f1", bg: "#eef2ff", areas: "Online learning, tutoring, student assessment" },
+  { key: "hospitality",   emoji: "🏨", label: "Hospitality",         color: "#14b8a6", bg: "#f0fdfa", areas: "Hotels, travel planning, customer service" },
+  { key: "food",          emoji: "🍔", label: "Food & Restaurants",  color: "#ef4444", bg: "#fef2f2", areas: "Restaurant management, food delivery" },
+  { key: "aviation",      emoji: "✈️", label: "Aviation",            color: "#06b6d4", bg: "#ecfeff", areas: "Airport operations, aircraft maintenance" },
+  { key: "maritime",      emoji: "🚢", label: "Maritime",            color: "#1d4ed8", bg: "#eff6ff", areas: "Ports, cargo, vessel management" },
+  { key: "railways",      emoji: "🚆", label: "Railways",            color: "#4f46e5", bg: "#eef2ff", areas: "Train operations, maintenance, passenger services" },
+  { key: "realestate",    emoji: "🏢", label: "Real Estate",         color: "#64748b", bg: "#f8fafc", areas: "Property management, valuation, smart buildings" },
+  { key: "telecom",       emoji: "📡", label: "Telecommunications",  color: "#7c3aed", bg: "#f5f3ff", areas: "Network optimization, customer support" },
+  { key: "itsoftware",    emoji: "💻", label: "IT & Software",       color: "#059669", bg: "#ecfdf5", areas: "Cybersecurity, cloud services, automation" },
+  { key: "gaming",        emoji: "🎮", label: "Entertainment",       color: "#dc2626", bg: "#fef2f2", areas: "Games, streaming, content recommendation" },
+  { key: "legal",         emoji: "⚖️", label: "Legal Services",      color: "#92400e", bg: "#fffbeb", areas: "Legal research, contracts, case management" },
+  { key: "insurance",     emoji: "🛡️", label: "Insurance",           color: "#0f766e", bg: "#f0fdfa", areas: "Claims, risk assessment, customer service" },
+  { key: "government",    emoji: "🏛️", label: "Government",          color: "#374151", bg: "#f9fafb", areas: "Citizen services, document processing" },
+  { key: "research",      emoji: "🔬", label: "Research & Science",  color: "#9333ea", bg: "#faf5ff", areas: "Data analysis, simulations, labs" },
+  { key: "automotive",    emoji: "🚗", label: "Automotive",          color: "#be123c", bg: "#fff1f2", areas: "Manufacturing, autonomous systems, maintenance" },
+  { key: "defense",       emoji: "🛩️", label: "Defense & Aerospace", color: "#1e3a5f", bg: "#eff6ff", areas: "Aircraft, satellites, mission systems" },
 ];
+
+const INDUSTRY_DOCS_SEED = {
+  health:  [
+    { id: "hc-1", name: "PubMedQA Dataset v2.pdf",        size: "14.2 MB", date: "2 hrs ago",   type: "pdf", sharedBy: "Dr. Priya S.",  note: "Useful for diagnostics Q&A benchmarking." },
+    { id: "hc-2", name: "WHO Diabetes Fact Sheet 2023.pdf", size: "3.8 MB", date: "1 day ago",  type: "pdf", sharedBy: "Dr. Meghna R.", note: "Latest WHO diabetes global report." },
+    { id: "hc-3", name: "ADA Standards of Care 2024.pdf", size: "22.1 MB", date: "3 days ago", type: "pdf", sharedBy: "Dr. Meghna R.", note: "Clinical care standards from ADA." },
+  ],
+  finance: [
+    { id: "fi-1", name: "FinQA Benchmark Dataset.pdf",              size: "9.5 MB",  date: "5 hrs ago",  type: "pdf", sharedBy: "Wei L.",   note: "Financial reasoning evaluation corpus." },
+    { id: "fi-2", name: "Federal Reserve Working Paper 2022.pdf",    size: "2.1 MB",  date: "2 days ago", type: "pdf", sharedBy: "Arjun M.", note: "Key macroeconomic risk insights." },
+    { id: "fi-3", name: "IMF Global Financial Stability Report.pdf", size: "18.7 MB", date: "1 week ago", type: "pdf", sharedBy: "Arjun M.", note: "Key Q3 risk review document." },
+  ],
+  traffic: [
+    { id: "tr-1", name: "Highway Code 2024.pdf",               size: "6.3 MB", date: "1 day ago",  type: "pdf", sharedBy: "Samira K.", note: "Updated 2024 driving licence rules." },
+    { id: "tr-2", name: "Road Traffic Act 1988 (UK).pdf",       size: "1.9 MB", date: "4 days ago", type: "pdf", sharedBy: "Samira K.", note: "UK traffic legislation reference." },
+    { id: "tr-3", name: "DfT Driving Standards Guide 2023.pdf", size: "4.4 MB", date: "1 week ago", type: "pdf", sharedBy: "Samira K.", note: "DVSA standards guide 2023." },
+  ],
+};
+
+const SHARE_SOCIALS = [
+  { id: "whatsapp", label: "WhatsApp",   color: "#25D366", icon: "W",
+    url: (t) => `https://wa.me/?text=${encodeURIComponent(t)}` },
+  { id: "twitter",  label: "X / Twitter", color: "#000",   icon: "𝕏",
+    url: (t) => `https://twitter.com/intent/tweet?text=${encodeURIComponent(t.slice(0, 280))}` },
+  { id: "linkedin", label: "LinkedIn",   color: "#0A66C2", icon: "in",
+    url: (t) => `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}&summary=${encodeURIComponent(t.slice(0, 300))}` },
+  { id: "facebook", label: "Facebook",   color: "#1877F2", icon: "f",
+    url: (t) => `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(t.slice(0, 300))}` },
+  { id: "telegram", label: "Telegram",   color: "#26A5E4", icon: "✈",
+    url: (t) => `https://t.me/share/url?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(t.slice(0, 400))}` },
+  { id: "email",    label: "Email",      color: "#6b7280", icon: "✉",
+    url: (t) => `mailto:?subject=NexusRAG%20Document&body=${encodeURIComponent(t)}` },
+];
+
+function DocShareModal({ doc, industry, onClose }) {
+  const [copied, setCopied] = useState(false);
+  const text = `📄 ${doc.name}\n🏭 Industry: ${industry.label}\nShared via NexusRAG\n\n${window.location.origin}`;
+  const handleCopy = () => {
+    navigator.clipboard.writeText(text).catch(() => { });
+    setCopied(true); setTimeout(() => setCopied(false), 2000);
+  };
+  return (
+    <div className="jd-overlay" onClick={onClose}>
+      <div className="jd-modal" onClick={(e) => e.stopPropagation()}>
+        <div className="jd-modal-hd">
+          <div className="jd-modal-title">Share Document</div>
+          <button className="jd-modal-close" onClick={onClose}>✕</button>
+        </div>
+        <div className="jd-modal-preview">
+          <div className="jd-modal-ind" style={{ background: industry.bg, color: industry.color }}>
+            {industry.emoji} {industry.label}
+          </div>
+          <div className="jd-modal-docname">📄 {doc.name}</div>
+          {doc.note && <div className="jd-modal-note">{doc.note}</div>}
+        </div>
+        <div className="jd-modal-grid">
+          {SHARE_SOCIALS.map((s) => (
+            <a key={s.id} href={s.url(text)} target="_blank" rel="noopener noreferrer"
+              className="jd-social-btn" style={{ "--sc": s.color }}>
+              <span className="jd-social-icon">{s.icon}</span>
+              <span className="jd-social-label">{s.label}</span>
+            </a>
+          ))}
+        </div>
+        <div className="jd-modal-divider">or</div>
+        <button className={`jd-copy-btn${copied ? " copied" : ""}`} onClick={handleCopy}>
+          {copied ? "✓ Copied!" : "🔗 Copy link"}
+        </button>
+      </div>
+    </div>
+  );
+}
 
 /* ─── Icon set ────────────────────────────────────────────── */
 function Icon({ name, size = 18 }) {
-  const c = { width: size, height: size, viewBox: "0 0 24 24", fill: "none",
-    stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round", strokeLinejoin: "round" };
+  const c = {
+    width: size, height: size, viewBox: "0 0 24 24", fill: "none",
+    stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round", strokeLinejoin: "round"
+  };
   switch (name) {
-    case "home":      return <svg {...c}><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></svg>;
-    case "calendar":  return <svg {...c}><rect x="3.5" y="5" width="17" height="16" rx="2.5"/><path d="M8 3v4M16 3v4M3.5 10h17"/></svg>;
-    case "chat":      return <svg {...c}><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8A2.5 2.5 0 0 1 17.5 16H10l-4.5 4v-4H6.5A2.5 2.5 0 0 1 4 13.5z"/></svg>;
-    case "share":     return <svg {...c}><circle cx="18" cy="5" r="2.3"/><circle cx="6" cy="12" r="2.3"/><circle cx="18" cy="19" r="2.3"/><path d="M8.1 10.8 15.9 6.2M8.1 13.2l7.8 4.6"/></svg>;
-    case "note":      return <svg {...c}><path d="M6 3.5h9l3 3V20a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5z"/><path d="M9 10h6M9 13.5h6M9 17h3.5"/></svg>;
-    case "grid":      return <svg {...c}><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg>;
-    case "settings":  return <svg {...c}><circle cx="12" cy="12" r="3.2"/><path d="M12 3v2.2M12 18.8V21M21 12h-2.2M5.2 12H3M18.1 5.9l-1.55 1.55M7.45 16.55 5.9 18.1M18.1 18.1l-1.55-1.55M7.45 7.45 5.9 5.9"/></svg>;
-    case "help":      return <svg {...c}><circle cx="12" cy="12" r="9"/><path d="M9.5 9.3a2.5 2.5 0 1 1 3.4 2.3c-.8.4-1.1.9-1.1 1.7v.4"/><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg>;
-    case "sidebar":   return <svg {...c}><rect x="3.5" y="4" width="17" height="16" rx="2.5"/><path d="M9.5 4v16"/></svg>;
-    case "plus":      return <svg {...c}><path d="M12 5v14M5 12h14"/></svg>;
-    case "shareTop":  return <svg {...c}><path d="M12 15V4M8 8l4-4 4 4"/><path d="M5 14v4.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V14"/></svg>;
-    case "trash":     return <svg {...c}><path d="M5.5 7h13M9.5 7V5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v2M7 7l.8 12a1.5 1.5 0 0 0 1.5 1.4h5.4a1.5 1.5 0 0 0 1.5-1.4L17 7"/></svg>;
-    case "close":     return <svg {...c}><path d="M6 6l12 12M18 6 6 18"/></svg>;
-    case "clip":      return <svg {...c}><path d="M8 12.5 15 5.5a3 3 0 1 1 4.2 4.2l-8.5 8.5a5 5 0 1 1-7.1-7.1L12 2.5"/></svg>;
-    case "up":        return <svg {...c}><path d="M12 19V5M6 11l6-6 6 6"/></svg>;
-    case "search":    return <svg {...c}><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.35-4.35"/></svg>;
-    case "chevron":   return <svg {...c}><path d="M9 6l6 6-6 6"/></svg>;
-    case "refresh":   return <svg {...c}><path d="M4 12a8 8 0 0 1 14.5-4.6M20 12a8 8 0 0 1-14.5 4.6"/><path d="M18.5 3.5v4h-4M5.5 20.5v-4h4"/></svg>;
-    case "check":     return <svg {...c}><path d="M5 12.5l4.5 4.5L19 7"/></svg>;
-    case "industry":  return <svg {...c}><path d="M3.5 20.5V10l6-4v14.5M9.5 20.5V6l5-3v17.5M14.5 20.5V9l6 3v8.5"/><path d="M3.5 20.5h17"/></svg>;
-    case "file":      return <svg {...c}><path d="M7 3.5h7l4 4V20a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5z"/><path d="M14 3.5V8h4.5"/></svg>;
-    case "upload":    return <svg {...c}><path d="M12 15V4M8 8l4-4 4 4"/><path d="M5 14v4.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V14"/></svg>;
-    case "bell":      return <svg {...c}><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>;
-    case "logout":    return <svg {...c}><path d="M9.5 12h11M17 8.5l3.5 3.5-3.5 3.5"/><path d="M14 5H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h9"/></svg>;
+    case "home": return <svg {...c}><path d="M3 11.5 12 4l9 7.5" /><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9" /></svg>;
+    case "calendar": return <svg {...c}><rect x="3.5" y="5" width="17" height="16" rx="2.5" /><path d="M8 3v4M16 3v4M3.5 10h17" /></svg>;
+    case "chat": return <svg {...c}><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8A2.5 2.5 0 0 1 17.5 16H10l-4.5 4v-4H6.5A2.5 2.5 0 0 1 4 13.5z" /></svg>;
+    case "share": return <svg {...c}><circle cx="18" cy="5" r="2.3" /><circle cx="6" cy="12" r="2.3" /><circle cx="18" cy="19" r="2.3" /><path d="M8.1 10.8 15.9 6.2M8.1 13.2l7.8 4.6" /></svg>;
+    case "note": return <svg {...c}><path d="M6 3.5h9l3 3V20a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5z" /><path d="M9 10h6M9 13.5h6M9 17h3.5" /></svg>;
+    case "grid": return <svg {...c}><rect x="3.5" y="3.5" width="7" height="7" rx="1.5" /><rect x="13.5" y="3.5" width="7" height="7" rx="1.5" /><rect x="3.5" y="13.5" width="7" height="7" rx="1.5" /><rect x="13.5" y="13.5" width="7" height="7" rx="1.5" /></svg>;
+    case "settings": return <svg {...c}><circle cx="12" cy="12" r="3.2" /><path d="M12 3v2.2M12 18.8V21M21 12h-2.2M5.2 12H3M18.1 5.9l-1.55 1.55M7.45 16.55 5.9 18.1M18.1 18.1l-1.55-1.55M7.45 7.45 5.9 5.9" /></svg>;
+    case "help": return <svg {...c}><circle cx="12" cy="12" r="9" /><path d="M9.5 9.3a2.5 2.5 0 1 1 3.4 2.3c-.8.4-1.1.9-1.1 1.7v.4" /><circle cx="12" cy="17" r="0.6" fill="currentColor" stroke="none" /></svg>;
+    case "sidebar": return <svg {...c}><rect x="3.5" y="4" width="17" height="16" rx="2.5" /><path d="M9.5 4v16" /></svg>;
+    case "plus": return <svg {...c}><path d="M12 5v14M5 12h14" /></svg>;
+    case "shareTop": return <svg {...c}><path d="M12 15V4M8 8l4-4 4 4" /><path d="M5 14v4.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V14" /></svg>;
+    case "trash": return <svg {...c}><path d="M5.5 7h13M9.5 7V5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v2M7 7l.8 12a1.5 1.5 0 0 0 1.5 1.4h5.4a1.5 1.5 0 0 0 1.5-1.4L17 7" /></svg>;
+    case "close": return <svg {...c}><path d="M6 6l12 12M18 6 6 18" /></svg>;
+    case "clip": return <svg {...c}><path d="M8 12.5 15 5.5a3 3 0 1 1 4.2 4.2l-8.5 8.5a5 5 0 1 1-7.1-7.1L12 2.5" /></svg>;
+    case "up": return <svg {...c}><path d="M12 19V5M6 11l6-6 6 6" /></svg>;
+    case "search": return <svg {...c}><circle cx="11" cy="11" r="7" /><path d="M20 20l-4.35-4.35" /></svg>;
+    case "chevron": return <svg {...c}><path d="M9 6l6 6-6 6" /></svg>;
+    case "refresh": return <svg {...c}><path d="M4 12a8 8 0 0 1 14.5-4.6M20 12a8 8 0 0 1-14.5 4.6" /><path d="M18.5 3.5v4h-4M5.5 20.5v-4h4" /></svg>;
+    case "check": return <svg {...c}><path d="M5 12.5l4.5 4.5L19 7" /></svg>;
+    case "industry": return <svg {...c}><path d="M3.5 20.5V10l6-4v14.5M9.5 20.5V6l5-3v17.5M14.5 20.5V9l6 3v8.5" /><path d="M3.5 20.5h17" /></svg>;
+    case "file": return <svg {...c}><path d="M7 3.5h7l4 4V20a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5z" /><path d="M14 3.5V8h4.5" /></svg>;
+    case "upload": return <svg {...c}><path d="M12 15V4M8 8l4-4 4 4" /><path d="M5 14v4.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V14" /></svg>;
+    case "bell": return <svg {...c}><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 0 1-3.46 0" /></svg>;
+    case "logout": return <svg {...c}><path d="M9.5 12h11M17 8.5l3.5 3.5-3.5 3.5" /><path d="M14 5H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h9" /></svg>;
     default: return null;
   }
 }
@@ -107,18 +181,44 @@ function formatFileSize(bytes) {
 export default function UserDashboard() {
   const navigate = useNavigate();
   const { logout } = useAuth();
-  const [question, setQuestion]         = useState("");
-  const [showBanner, setShowBanner]     = useState(true);
-  const [showTopBar, setShowTopBar]     = useState(true);
-  const [attachments, setAttachments]   = useState([]);
-  const [expandedMenu, setExpandedMenu] = useState(null);
-  const [contentTags, setContentTags]   = useState([]);
+  const [question, setQuestion]               = useState("");
+  const [showBanner, setShowBanner]           = useState(true);
+  const [showTopBar, setShowTopBar]           = useState(true);
+  const [attachments, setAttachments]         = useState([]);
+  const [expandedMenu, setExpandedMenu]       = useState(null);
+  const [contentTags, setContentTags]         = useState([]);
   const [showContentMenu, setShowContentMenu] = useState(false);
   const [historySearch, setHistorySearch]     = useState("");
-  const [messages, setMessages]         = useState([]);
-  const [isReplying, setIsReplying]     = useState(false);
-  const fileInputRef  = useRef(null);
-  const threadEndRef  = useRef(null);
+  const [messages, setMessages]               = useState([]);
+  const [isReplying, setIsReplying]           = useState(false);
+  const [rightTab, setRightTab]               = useState("history");
+  const [docShareTarget, setDocShareTarget]   = useState(null);
+  const [industryDocs, setIndustryDocs] = useState(() =>
+    Object.fromEntries(INDUSTRIES.map((ind) => [ind.key, [...(INDUSTRY_DOCS_SEED[ind.key] || [])]]))
+  );
+  const [activeIndustryKey, setActiveIndustryKey] = useState(null);
+  const fileInputRef = useRef(null);
+  const docFileRef   = useRef(null);
+  const threadEndRef = useRef(null);
+
+  const activeIndustry = INDUSTRIES.find((i) => i.key === activeIndustryKey) || null;
+  const activeDocs     = activeIndustryKey ? (industryDocs[activeIndustryKey] || []) : [];
+
+  const handleDocUpload = (e) => {
+    const files = Array.from(e.target.files || []);
+    if (!files.length || !activeIndustryKey) return;
+    const newDocs = files.map((f) => ({
+      id: `doc-${Date.now()}-${Math.random()}`,
+      name: f.name,
+      size: f.size < 1024*1024 ? `${Math.round(f.size/1024)} KB` : `${(f.size/(1024*1024)).toFixed(1)} MB`,
+      date: "Just now", type: f.name.split(".").pop().toLowerCase(),
+      sharedBy: "Me", note: "",
+    }));
+    setIndustryDocs((prev) => ({ ...prev, [activeIndustryKey]: [...newDocs, ...(prev[activeIndustryKey] || [])] }));
+    e.target.value = "";
+  };
+  const handleDocDelete = (indKey, docId) =>
+    setIndustryDocs((prev) => ({ ...prev, [indKey]: (prev[indKey] || []).filter((d) => d.id !== docId) }));
 
   useEffect(() => {
     threadEndRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
@@ -180,6 +280,7 @@ export default function UserDashboard() {
     setAttachments([]);
     setContentTags([]);
     setIsReplying(false);
+    setActiveIndustryKey(null);
   };
 
   const isChatView = messages.length > 0;
@@ -195,23 +296,23 @@ export default function UserDashboard() {
     .filter((g) => g.items.length > 0);
   const hasNoResults = trimmedSearch.length > 0 && filteredHistory.length === 0;
 
-  /* ── sidebar menu config — all buttons now navigate ── */
+  /* ── sidebar menu config ── */
   const MENU_ITEMS = [
     { key: "home",       label: "Home",          icon: "home",     href: "/" },
     { key: "meetings",   label: "My Meetings",   icon: "calendar", href: "/meetings" },
-    { key: "chat",       label: "NexusRAG Chat", icon: "chat",     badge: "NEW", active: true, href: "/chat" },
+    { key: "chat",       label: "NexusRAG Chat", icon: "chat",     badge: "NEW", active: !activeIndustryKey, href: "/chat" },
     {
       key: "industries",
       label: "Industries",
       icon: "industry",
-      children: [
-        { key: "health",  label: "Health",   href: "/chat" },
-        { key: "traffic", label: "Traffic",  href: "/chat" },
-        { key: "finance", label: "Finance",  href: "/chat" },
-      ],
+      children: INDUSTRIES.map((ind) => ({
+        key: ind.key, label: ind.label, emoji: ind.emoji,
+        action: () => setActiveIndustryKey(ind.key),
+      })),
     },
-    { key: "shared",        label: "Shared with Me",  icon: "share",  href: "/collections" },
-    { key: "notes",         label: "Notes",            icon: "note",   href: "/notes" },
+    { key: "shared",        label: "Shared with Me",  icon: "share",
+      action: () => { setActiveIndustryKey(null); setRightTab("shared"); } },
+    { key: "notes",         label: "Notes",            icon: "note",  href: "/notes" },
     { key: "notifications", label: "Notifications",    icon: "bell",  href: "/notifications" },
   ];
 
@@ -333,14 +434,18 @@ export default function UserDashboard() {
 }
 .jolly-dash .menu-item.expanded .menu-chev { transform: rotate(90deg); }
 .jolly-dash .menu-group { display: flex; flex-direction: column; }
-.jolly-dash .submenu { display: flex; flex-direction: column; gap: 1px; padding: 2px 0 4px 40px; }
+.jolly-dash .submenu { display: flex; flex-direction: column; gap: 1px; padding: 2px 0 4px 36px; max-height: 280px; overflow-y: auto; }
 .jolly-dash .submenu-item {
-  display: flex; align-items: center; width: 100%; text-align: left;
-  border: none; background: none; font-size: 13px; color: var(--text-soft);
-  padding: 8px 10px; border-radius: 8px; cursor: pointer;
+  display: flex; align-items: center; gap: 7px; width: 100%; text-align: left;
+  border: none; background: none; font-size: 12.5px; color: var(--text-soft);
+  padding: 7px 10px; border-radius: 8px; cursor: pointer;
   transition: background 0.2s, color 0.2s; font-family: inherit;
 }
 .jolly-dash .submenu-item:hover { background: var(--line-soft); color: var(--text); }
+.jolly-dash .submenu-item.active { background: var(--violet-soft); color: var(--violet); font-weight: 600; }
+.jolly-dash .sub-label { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.jolly-dash .sub-count { font-size: 9.5px; font-weight: 700; padding: 1px 6px; border-radius: 100px; background: var(--line); color: var(--text-faint); flex-shrink: 0; transition: background 0.2s; }
+.jolly-dash .submenu-item.active .sub-count { background: var(--violet); color: #fff; }
 
 .jolly-dash .side-spacer { flex: 1; }
 .jolly-dash .bottom-links { display: flex; flex-direction: column; gap: 2px; }
@@ -540,13 +645,55 @@ export default function UserDashboard() {
 .jolly-dash .recent-card .r-title { font-size: 13.5px; font-weight: 600; line-height: 1.4; }
 .jolly-dash .recent-card .r-time { font-size: 12px; color: var(--text-faint); }
 
+/* ── back btn ── */
+.jolly-dash .back-btn { display: inline-flex; align-items: center; gap: 7px; padding: 8px 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--paper); font-size: 13px; font-weight: 500; color: var(--text-soft); cursor: pointer; transition: background 0.2s; font-family: inherit; }
+.jolly-dash .back-btn:hover { background: var(--line-soft); color: var(--text); }
+
+/* ── industry doc panel ── */
+.jolly-dash .ind-panel { padding: 0 26px 30px; }
+.jolly-dash .ind-hd { display: flex; align-items: center; gap: 16px; padding: 20px 0 18px; border-bottom: 1px solid var(--line); margin-bottom: 22px; }
+.jolly-dash .ind-hd-emoji { width: 56px; height: 56px; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 28px; flex-shrink: 0; }
+.jolly-dash .ind-hd-info { flex: 1; min-width: 0; }
+.jolly-dash .ind-hd-title { font-size: 21px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 4px; }
+.jolly-dash .ind-hd-desc { font-size: 13px; color: var(--text-soft); }
+.jolly-dash .ind-stats { display: flex; gap: 20px; flex-shrink: 0; text-align: center; }
+.jolly-dash .ind-stat-val { font-size: 22px; font-weight: 700; color: var(--violet); }
+.jolly-dash .ind-stat-lbl { font-size: 11px; color: var(--text-faint); }
+.jolly-dash .ind-upload-zone { border: 2px dashed var(--line); border-radius: 18px; padding: 32px 24px; text-align: center; margin-bottom: 24px; cursor: pointer; transition: border-color 0.2s, background 0.2s; }
+.jolly-dash .ind-upload-zone:hover { border-color: var(--violet); background: var(--violet-soft); }
+.jolly-dash .ind-upload-zone .uicon { font-size: 36px; margin-bottom: 10px; }
+.jolly-dash .ind-upload-zone .utxt { font-size: 14.5px; font-weight: 600; margin-bottom: 4px; }
+.jolly-dash .ind-upload-zone .uhint { font-size: 12px; color: var(--text-faint); }
+.jolly-dash .ind-toolbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.jolly-dash .ind-toolbar-title { font-size: 14px; font-weight: 600; }
+.jolly-dash .ind-add-btn { display: inline-flex; align-items: center; gap: 7px; padding: 8px 16px; border-radius: 10px; border: none; background: var(--violet); color: #fff; font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.2s; font-family: inherit; }
+.jolly-dash .ind-add-btn:hover { background: #6b4ef5; }
+.jolly-dash .ind-doc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: 14px; }
+.jolly-dash .ind-doc-card { border: 1px solid var(--line); border-radius: 16px; padding: 16px; background: #fff; display: flex; flex-direction: column; gap: 10px; transition: border-color 0.2s, box-shadow 0.2s; }
+.jolly-dash .ind-doc-card:hover { border-color: var(--violet); box-shadow: 0 4px 20px -8px rgba(124,92,255,0.2); }
+.jolly-dash .ind-card-top { display: flex; align-items: flex-start; gap: 12px; }
+.jolly-dash .ind-type-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.jolly-dash .ind-type-icon.pdf { background: #fee2e2; } .jolly-dash .ind-type-icon.csv { background: #dcfce7; } .jolly-dash .ind-type-icon.xlsx { background: #dbeafe; } .jolly-dash .ind-type-icon.other { background: var(--line-soft); }
+.jolly-dash .ind-card-meta { flex: 1; min-width: 0; }
+.jolly-dash .ind-card-name { font-size: 13px; font-weight: 600; line-height: 1.4; word-break: break-word; color: var(--text); }
+.jolly-dash .ind-card-info { font-size: 11px; color: var(--text-faint); margin-top: 2px; }
+.jolly-dash .ind-card-note { font-size: 12px; color: var(--text-soft); background: var(--line-soft); border-radius: 8px; padding: 7px 10px; line-height: 1.4; }
+.jolly-dash .ind-card-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+.jolly-dash .idc-btn { display: inline-flex; align-items: center; gap: 5px; padding: 5px 11px; border-radius: 8px; border: 1px solid var(--line); background: var(--paper); font-size: 11.5px; font-weight: 500; color: var(--text-soft); cursor: pointer; transition: all 0.2s; font-family: inherit; }
+.jolly-dash .idc-btn:hover { background: #fff; color: var(--text); border-color: var(--violet); }
+.jolly-dash .idc-btn.share { color: var(--violet); border-color: var(--violet); background: var(--violet-soft); } .jolly-dash .idc-btn.share:hover { background: var(--violet); color: #fff; }
+.jolly-dash .idc-btn.del:hover { color: #dc2626; border-color: #fecaca; background: #fef2f2; }
+.jolly-dash .ind-empty { text-align: center; padding: 60px 24px; border: 2px dashed var(--line); border-radius: 18px; }
+.jolly-dash .ind-empty-icon { font-size: 42px; margin-bottom: 12px; } .jolly-dash .ind-empty-title { font-size: 16px; font-weight: 700; margin-bottom: 6px; } .jolly-dash .ind-empty-desc { font-size: 13.5px; color: var(--text-soft); margin-bottom: 20px; }
+
 /* ── right panel ── */
 .jolly-dash .right-panel { border-left: 1px solid var(--line); padding: 20px 18px; overflow-y: auto; }
-.jolly-dash .search-box {
-  display: flex; align-items: center; gap: 8px;
-  border: 1px solid var(--line); border-radius: 12px;
-  padding: 9px 12px; margin-bottom: 22px;
-}
+.jolly-dash .rp-tabs { display: flex; margin-bottom: 18px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.jolly-dash .rp-tab { flex: 1; padding: 9px 0; border: none; background: none; font-size: 12.5px; font-weight: 600; color: var(--text-soft); cursor: pointer; transition: background 0.2s, color 0.2s; font-family: inherit; }
+.jolly-dash .rp-tab:first-child { border-right: 1px solid var(--line); }
+.jolly-dash .rp-tab.active { background: var(--violet); color: #fff; }
+.jolly-dash .rp-tab:not(.active):hover { background: var(--line-soft); color: var(--text); }
+.jolly-dash .search-box { display: flex; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 12px; padding: 9px 12px; margin-bottom: 22px; }
 .jolly-dash .search-box input { border: none; outline: none; font-size: 13.5px; flex: 1; color: var(--text); background: none; }
 .jolly-dash .search-box input::placeholder { color: var(--text-faint); }
 .jolly-dash .search-box .kbd { font-size: 11px; color: var(--text-faint); border: 1px solid var(--line); border-radius: 5px; padding: 2px 5px; flex-shrink: 0; }
@@ -561,6 +708,39 @@ export default function UserDashboard() {
 .jolly-dash .history-item .h-meta { flex: 1; min-width: 0; }
 .jolly-dash .history-item .h-title { font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .jolly-dash .history-item .h-time { font-size: 11.5px; color: var(--text-faint); margin-top: 1px; }
+.jolly-dash .shared-ind-label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+.jolly-dash .shared-count-badge { font-size: 10px; font-weight: 700; padding: 1px 7px; border-radius: 100px; }
+.jolly-dash .shared-card { border: 1px solid var(--line); border-radius: 14px; padding: 13px; background: #fff; display: flex; flex-direction: column; gap: 8px; transition: border-color 0.2s, box-shadow 0.2s; margin-bottom: 8px; }
+.jolly-dash .shared-card:hover { border-color: var(--violet); box-shadow: 0 4px 16px -8px rgba(124,92,255,0.2); }
+.jolly-dash .shared-card-top { display: flex; align-items: flex-start; gap: 10px; }
+.jolly-dash .shared-doc-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; background: #fee2e2; }
+.jolly-dash .shared-doc-meta { flex: 1; min-width: 0; }
+.jolly-dash .shared-doc-name { font-size: 12.5px; font-weight: 600; line-height: 1.4; word-break: break-word; color: var(--text); }
+.jolly-dash .shared-doc-by { font-size: 11px; color: var(--text-faint); margin-top: 2px; }
+.jolly-dash .shared-doc-note { font-size: 11.5px; color: var(--text-soft); padding: 6px 9px; border-radius: 8px; background: var(--line-soft); line-height: 1.45; }
+.jolly-dash .shared-actions { display: flex; gap: 6px; }
+.jolly-dash .shared-btn { display: inline-flex; align-items: center; gap: 5px; padding: 5px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--paper); font-size: 11.5px; font-weight: 500; color: var(--text-soft); cursor: pointer; transition: all 0.2s; font-family: inherit; }
+.jolly-dash .shared-btn:hover { background: #fff; color: var(--text); border-color: var(--violet); }
+.jolly-dash .shared-btn.share { color: var(--violet); border-color: var(--violet); background: var(--violet-soft); } .jolly-dash .shared-btn.share:hover { background: var(--violet); color: #fff; }
+.jolly-dash .jd-overlay { position: fixed; inset: 0; z-index: 9999; background: rgba(15,17,21,0.5); backdrop-filter: blur(5px); display: flex; align-items: center; justify-content: center; padding: 24px; }
+.jolly-dash .jd-modal { background: var(--panel); border-radius: 22px; box-shadow: 0 30px 60px -20px rgba(15,17,21,0.35); padding: 26px; width: 100%; max-width: 400px; }
+.jolly-dash .jd-modal-hd { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.jolly-dash .jd-modal-title { font-size: 16px; font-weight: 700; }
+.jolly-dash .jd-modal-close { width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--line); background: var(--paper); color: var(--text-soft); font-size: 13px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s; }
+.jolly-dash .jd-modal-close:hover { background: var(--line-soft); color: var(--text); }
+.jolly-dash .jd-modal-preview { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; margin-bottom: 18px; display: flex; flex-direction: column; gap: 7px; }
+.jolly-dash .jd-modal-ind { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 100px; width: fit-content; }
+.jolly-dash .jd-modal-docname { font-size: 13px; font-weight: 600; color: var(--text); }
+.jolly-dash .jd-modal-note { font-size: 12px; color: var(--text-soft); line-height: 1.4; }
+.jolly-dash .jd-modal-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 16px; }
+.jolly-dash .jd-social-btn { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px 6px; border-radius: 12px; border: 1.5px solid var(--line); background: var(--paper); text-decoration: none; color: var(--text); transition: all 0.2s; cursor: pointer; }
+.jolly-dash .jd-social-btn:hover { background: var(--sc, var(--violet)); color: #fff; border-color: transparent; box-shadow: 0 4px 14px -4px var(--sc,rgba(124,92,255,0.5)); }
+.jolly-dash .jd-social-icon { font-size: 18px; font-weight: 700; line-height: 1; } .jolly-dash .jd-social-label { font-size: 10px; font-weight: 600; white-space: nowrap; }
+.jolly-dash .jd-modal-divider { text-align: center; color: var(--text-faint); font-size: 11.5px; position: relative; margin-bottom: 14px; }
+.jolly-dash .jd-modal-divider::before,.jolly-dash .jd-modal-divider::after { content:""; position: absolute; top: 50%; width: calc(50% - 18px); height: 1px; background: var(--line); }
+.jolly-dash .jd-modal-divider::before { left: 0; } .jolly-dash .jd-modal-divider::after { right: 0; }
+.jolly-dash .jd-copy-btn { width: 100%; padding: 11px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--paper); font-size: 13.5px; font-weight: 600; color: var(--text); cursor: pointer; transition: all 0.2s; font-family: inherit; }
+.jolly-dash .jd-copy-btn:hover { background: var(--line-soft); } .jolly-dash .jd-copy-btn.copied { background: #dcfce7; border-color: #86efac; color: #15803d; }
 `}</style>
 
       {/* ── TOP ANNOUNCEMENT BAR ── */}
@@ -612,11 +792,13 @@ export default function UserDashboard() {
                       <div className="submenu">
                         {item.children.map((child) => (
                           <button
-                            className="submenu-item"
                             key={child.key}
-                            onClick={() => navigate(child.href)}
+                            className={`submenu-item${activeIndustryKey === child.key ? " active" : ""}`}
+                            onClick={child.action || (() => navigate(child.href))}
                           >
-                            {child.label}
+                            <span style={{ fontSize: 13, flexShrink: 0 }}>{child.emoji}</span>
+                            <span className="sub-label">{child.label}</span>
+                            <span className="sub-count">{(industryDocs[child.key] || []).length}</span>
                           </button>
                         ))}
                       </div>
@@ -626,7 +808,7 @@ export default function UserDashboard() {
                   <button
                     key={item.key}
                     className={`menu-item${item.active ? " active" : ""}`}
-                    onClick={() => navigate(item.href)}
+                    onClick={item.action || (() => navigate(item.href))}
                   >
                     <Icon name={item.icon} size={17} />
                     {item.label}
@@ -660,22 +842,34 @@ export default function UserDashboard() {
                 <button className="icon-btn" aria-label="Toggle sidebar">
                   <Icon name="sidebar" size={17} />
                 </button>
-                <button className="icon-btn" aria-label="New chat" onClick={handleNewChat}>
-                  <Icon name="plus" size={17} />
-                </button>
+                {activeIndustryKey ? (
+                  <button className="back-btn" onClick={() => setActiveIndustryKey(null)}>← Back to Chat</button>
+                ) : (
+                  <button className="icon-btn" aria-label="New chat" onClick={handleNewChat}>
+                    <Icon name="plus" size={17} />
+                  </button>
+                )}
               </div>
               <div className="main-top-right">
-                <button className="pill-btn" onClick={() => navigate("/chat")}>
-                  <Icon name="shareTop" size={15} /> Open Full Chat
-                </button>
-                <button className="pill-btn danger" onClick={handleNewChat}>
-                  <Icon name="trash" size={15} /> Clear Chat
-                </button>
+                {activeIndustryKey ? (
+                  <button className="pill-btn" onClick={() => navigate("/chat")}>
+                    <Icon name="chat" size={15} /> Open in Chat
+                  </button>
+                ) : (
+                  <>
+                    <button className="pill-btn" onClick={() => navigate("/chat")}>
+                      <Icon name="shareTop" size={15} /> Open Full Chat
+                    </button>
+                    <button className="pill-btn danger" onClick={handleNewChat}>
+                      <Icon name="trash" size={15} /> Clear Chat
+                    </button>
+                  </>
+                )}
               </div>
             </div>
 
-            {/* Promo banner */}
-            {showBanner && (
+            {/* Promo banner – only in chat mode */}
+            {showBanner && !activeIndustryKey && (
               <div className="promo-banner">
                 <span className="promo-tag">LIMITED</span>
                 <span className="promo-text">
@@ -688,24 +882,83 @@ export default function UserDashboard() {
               </div>
             )}
 
-            {/* Chat view vs hero */}
+            {/* ── Industry Doc Panel OR Chat ── */}
+            {activeIndustryKey && activeIndustry ? (
+              <div className="ind-panel">
+                <div className="ind-hd">
+                  <div className="ind-hd-emoji" style={{ background: activeIndustry.bg }}>{activeIndustry.emoji}</div>
+                  <div className="ind-hd-info">
+                    <div className="ind-hd-title">{activeIndustry.label}</div>
+                    <div className="ind-hd-desc">{activeIndustry.areas}</div>
+                  </div>
+                  <div className="ind-stats">
+                    <div><div className="ind-stat-val">{activeDocs.length}</div><div className="ind-stat-lbl">Documents</div></div>
+                  </div>
+                </div>
+                <div className="ind-upload-zone" onClick={() => docFileRef.current?.click()}>
+                  <div className="uicon">📤</div>
+                  <div className="utxt">Drop files here or click to upload</div>
+                  <div className="uhint">PDF, CSV, XLSX, DOCX, TXT, MD — all accepted</div>
+                </div>
+                <input ref={docFileRef} type="file" multiple style={{ display: "none" }}
+                  accept=".pdf,.csv,.xlsx,.xls,.docx,.txt,.md" onChange={handleDocUpload} />
+                <div className="ind-toolbar">
+                  <div className="ind-toolbar-title">📄 {activeDocs.length} document{activeDocs.length !== 1 ? "s" : ""} — {activeIndustry.label}</div>
+                  <button className="ind-add-btn" onClick={() => docFileRef.current?.click()}>
+                    <Icon name="upload" size={14} /> Add Document
+                  </button>
+                </div>
+                {activeDocs.length === 0 ? (
+                  <div className="ind-empty">
+                    <div className="ind-empty-icon">📭</div>
+                    <div className="ind-empty-title">No documents yet</div>
+                    <div className="ind-empty-desc">Upload your first document for the {activeIndustry.label} knowledge base.</div>
+                    <button className="ind-add-btn" onClick={() => docFileRef.current?.click()}>
+                      <Icon name="upload" size={14} /> Upload First Document
+                    </button>
+                  </div>
+                ) : (
+                  <div className="ind-doc-grid">
+                    {activeDocs.map((doc) => {
+                      const ext = doc.type || "other";
+                      const iconMap = { pdf: "📄", csv: "📊", xlsx: "📊", xls: "📊", docx: "📝", txt: "📝", md: "📝" };
+                      const iconCls = ["pdf","csv","xlsx"].includes(ext) ? ext : "other";
+                      return (
+                        <div key={doc.id} className="ind-doc-card">
+                          <div className="ind-card-top">
+                            <div className={`ind-type-icon ${iconCls}`}>{iconMap[ext] || "📄"}</div>
+                            <div className="ind-card-meta">
+                              <div className="ind-card-name">{doc.name}</div>
+                              <div className="ind-card-info">{doc.size} · {doc.date}{doc.sharedBy && doc.sharedBy !== "Me" && ` · by ${doc.sharedBy}`}</div>
+                            </div>
+                          </div>
+                          {doc.note && <div className="ind-card-note">{doc.note}</div>}
+                          <div className="ind-card-actions">
+                            <button className="idc-btn share" onClick={() => setDocShareTarget({ doc, industry: activeIndustry })}>↑ Share</button>
+                            <button className="idc-btn" onClick={() => navigate("/chat")}>💬 Query</button>
+                            <button className="idc-btn del" onClick={() => handleDocDelete(activeIndustryKey, doc.id)}><Icon name="trash" size={12} /></button>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            ) : (
+            <>{/* Chat view vs hero */}
             {isChatView ? (
               <div className="chat-thread">
                 {messages.map((m) => (
                   <div className={`msg-row ${m.role}`} key={m.id}>
                     {m.role === "assistant" && (
-                      <div className="msg-avatar assistant">
-                        <Icon name="chat" size={14} />
-                      </div>
+                      <div className="msg-avatar assistant"><Icon name="chat" size={14} /></div>
                     )}
                     <div className="msg-bubble">
                       {(m.tags?.length > 0 || m.attachments?.length > 0) && (
                         <div className="msg-meta-row">
                           {m.tags?.map((t) => <span className="msg-tag" key={t}>{t}</span>)}
                           {m.attachments?.map((a) => (
-                            <span className="msg-file" key={a.id}>
-                              <Icon name="file" size={12} /> {a.name}
-                            </span>
+                            <span className="msg-file" key={a.id}><Icon name="file" size={12} /> {a.name}</span>
                           ))}
                         </div>
                       )}
@@ -718,9 +971,7 @@ export default function UserDashboard() {
                   <div className="msg-row assistant">
                     <div className="msg-avatar assistant"><Icon name="chat" size={14} /></div>
                     <div className="msg-bubble typing">
-                      <span className="typing-dot" />
-                      <span className="typing-dot" />
-                      <span className="typing-dot" />
+                      <span className="typing-dot" /><span className="typing-dot" /><span className="typing-dot" />
                     </div>
                   </div>
                 )}
@@ -728,14 +979,8 @@ export default function UserDashboard() {
               </div>
             ) : (
               <div className="chat-hero">
-                <h1>
-                  Start talking to <span className="mascot"><Icon name="chat" size={17} /></span>{" "}
-                  <span className="brand-word">NexusRAG</span>
-                </h1>
-                <p>
-                  Your multi-industry RAG assistant. Ask questions about Healthcare, Finance,
-                  Traffic and more — every answer is grounded in retrieved documents with cited sources.
-                </p>
+                <h1>Start talking to <span className="mascot"><Icon name="chat" size={17} /></span>{" "}<span className="brand-word">NexusRAG</span></h1>
+                <p>Your multi-industry RAG assistant. Ask questions about Healthcare, Finance, Traffic and more — every answer is grounded in retrieved documents with cited sources.</p>
               </div>
             )}
 
@@ -854,92 +1099,96 @@ export default function UserDashboard() {
                 <div className="recent-label">Recent Chats</div>
                 <div className="recent-grid">
                   {RECENT_CHATS.map((c) => (
-                    <button
-                      className="recent-card"
-                      key={c.key}
-                      onClick={() =>
-                        c.title.toLowerCase() === "new chat"
-                          ? handleNewChat()
-                          : setMessages([{
-                              id: `seed-${c.key}`,
-                              role: "user",
-                              text: c.title,
-                              attachments: [],
-                              tags: [],
-                            }])
-                      }
-                    >
+                    <button className="recent-card" key={c.key}
+                      onClick={() => c.title.toLowerCase() === "new chat" ? handleNewChat()
+                        : setMessages([{ id: `seed-${c.key}`, role: "user", text: c.title, attachments: [], tags: [] }])
+                      }>
                       <div className="r-icon"><Icon name="chat" size={15} /></div>
-                      <div>
-                        <div className="r-title">{c.title}</div>
-                        <div className="r-time">{c.time}</div>
-                      </div>
+                      <div><div className="r-title">{c.title}</div><div className="r-time">{c.time}</div></div>
                     </button>
                   ))}
                 </div>
               </div>
             )}
+            </>)}
           </div>
 
-          {/* ── RIGHT PANEL (history) ── */}
+          {/* ── RIGHT PANEL ── */}
           <div className="right-panel">
-            <div className="search-box">
-              <Icon name="search" size={15} />
-              <input
-                type="text"
-                placeholder="Search history"
-                value={historySearch}
-                onChange={(e) => setHistorySearch(e.target.value)}
-              />
-              {historySearch ? (
-                <button
-                  type="button"
-                  className="search-clear"
-                  onClick={() => setHistorySearch("")}
-                >
-                  <Icon name="close" size={13} />
-                </button>
-              ) : (
-                <span className="kbd">⌘ K</span>
-              )}
+            <div className="rp-tabs">
+              <button className={`rp-tab${rightTab === "history" ? " active" : ""}`} onClick={() => setRightTab("history")}>💬 History</button>
+              <button className={`rp-tab${rightTab === "shared" ? " active" : ""}`} onClick={() => setRightTab("shared")}>🔗 Shared</button>
             </div>
 
-            {hasNoResults && (
-              <div className="no-results">No chats match "{historySearch}"</div>
-            )}
-
-            {filteredHistory.map((group) => (
-              <div className="history-group" key={group.group}>
-                <div className="history-group-label">{group.group}</div>
-                {group.items.map((item) => (
-                  <button
-                    className="history-item"
-                    key={item.key}
-                    onClick={() =>
-                      item.title.toLowerCase() === "new chat"
-                        ? handleNewChat()
-                        : setMessages([{
-                            id: `seed-${item.key}`,
-                            role: "user",
-                            text: item.title,
-                            attachments: [],
-                            tags: [],
-                          }])
-                    }
-                  >
-                    <span className="h-icon"><Icon name="chat" size={15} /></span>
-                    <div className="h-meta">
-                      <div className="h-title">{item.title}</div>
-                      <div className="h-time">{item.time}</div>
-                    </div>
-                  </button>
+            {rightTab === "history" ? (
+              <>
+                <div className="search-box">
+                  <Icon name="search" size={15} />
+                  <input type="text" placeholder="Search history" value={historySearch} onChange={(e) => setHistorySearch(e.target.value)} />
+                  {historySearch ? (
+                    <button type="button" className="search-clear" onClick={() => setHistorySearch("")}><Icon name="close" size={13} /></button>
+                  ) : <span className="kbd">⌘ K</span>}
+                </div>
+                {hasNoResults && <div className="no-results">No chats match "{historySearch}"</div>}
+                {filteredHistory.map((group) => (
+                  <div className="history-group" key={group.group}>
+                    <div className="history-group-label">{group.group}</div>
+                    {group.items.map((item) => (
+                      <button className="history-item" key={item.key}
+                        onClick={() => item.title.toLowerCase() === "new chat" ? handleNewChat()
+                          : setMessages([{ id: `seed-${item.key}`, role: "user", text: item.title, attachments: [], tags: [] }])
+                        }>
+                        <span className="h-icon"><Icon name="chat" size={15} /></span>
+                        <div className="h-meta"><div className="h-title">{item.title}</div><div className="h-time">{item.time}</div></div>
+                      </button>
+                    ))}
+                  </div>
                 ))}
+              </>
+            ) : (
+              <div>
+                {INDUSTRIES.filter((ind) => (industryDocs[ind.key] || []).length > 0).map((ind) => (
+                  <div key={ind.key} style={{ marginBottom: 18 }}>
+                    <div className="shared-ind-label" style={{ color: ind.color }}>
+                      {ind.emoji} {ind.label}
+                      <span className="shared-count-badge" style={{ background: ind.bg, color: ind.color }}>
+                        {(industryDocs[ind.key] || []).length}
+                      </span>
+                    </div>
+                    {(industryDocs[ind.key] || []).map((doc) => (
+                      <div key={doc.id} className="shared-card">
+                        <div className="shared-card-top">
+                          <div className="shared-doc-icon">📄</div>
+                          <div className="shared-doc-meta">
+                            <div className="shared-doc-name">{doc.name}</div>
+                            <div className="shared-doc-by">{doc.sharedBy !== "Me" ? `from ${doc.sharedBy}` : "Uploaded by you"} · {doc.date}</div>
+                          </div>
+                        </div>
+                        {doc.note && <div className="shared-doc-note">{doc.note}</div>}
+                        <div className="shared-actions">
+                          <button className="shared-btn share" onClick={() => setDocShareTarget({ doc, industry: ind })}>↑ Share</button>
+                          <button className="shared-btn" onClick={() => { setActiveIndustryKey(ind.key); setExpandedMenu("industries"); }}>📁 View</button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+                {INDUSTRIES.every((ind) => (industryDocs[ind.key] || []).length === 0) && (
+                  <div style={{ textAlign: "center", color: "var(--text-faint)", padding: "40px 16px", fontSize: 13 }}>
+                    <div style={{ fontSize: 32, marginBottom: 10 }}>📂</div>
+                    No documents yet. Use the Industries menu to add docs per sector.
+                  </div>
+                )}
               </div>
-            ))}
+            )}
           </div>
 
         </div>
       </div>
+
+      {docShareTarget && (
+        <DocShareModal doc={docShareTarget.doc} industry={docShareTarget.industry} onClose={() => setDocShareTarget(null)} />
+      )}
     </div>
   );
 }

@@ -1,83 +1,86 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
-const INDUSTRIES = ["Real Estate", "Fintech", "Healthtech", "Hospitality", "Proptech", "Edtech"];
-const MARQUEE_ITEMS = ["Real Estate", "Fintech", "Healthtech", "Hospitality", "Proptech", "Edtech", "Logistics", "SaaS"];
+const INDUSTRIES = ["Healthcare", "Finance", "Traffic & Transport", "Manufacturing", "Agriculture", "Legal Services"];
+const MARQUEE_ITEMS = ["Healthcare", "Finance", "Traffic", "Manufacturing", "Agriculture", "Legal", "Logistics", "Education"];
 
 const PROJECTS = [
   {
-    key: "re",
+    key: "hc",
     className: "project-card re",
-    title: "Kōrn Estates",
-    tag: "Real Estate · 2024",
-    desc: "Brand identity & site for a boutique housebuilder in the South West.",
-    visual: "Kōrn Estates",
+    title: "Healthcare RAG",
+    tag: "Healthcare · PubMedQA",
+    desc: "Instant, cited answers from millions of medical papers for clinicians and researchers.",
+    visual: "Healthcare RAG",
+    img: "/industries/healthcare.jpg",
   },
   {
     key: "fin",
     className: "project-card fin dark",
-    title: "Ledgerly",
-    tag: "Fintech · 2024",
-    desc: "A business analytics platform that shows founders what's really going on.",
-    visual: "Ledgerly",
+    title: "Finance Intelligence",
+    tag: "Finance · FinQA · TAT-QA",
+    desc: "Grounded answers on markets, risk and banking regulations — with source citations.",
+    visual: "Finance Intelligence",
+    img: "/industries/finance.jpg",
   },
   {
-    key: "health",
+    key: "traffic",
     className: "project-card health",
-    title: "Vitalis Care",
-    tag: "Healthtech · 2023",
-    desc: "Patient-first booking experience for a network of private clinics.",
-    visual: "Vitalis Care",
+    title: "Traffic & Transport",
+    tag: "Traffic · Driving Law",
+    desc: "Road rules, accident analysis and transport policy Q&A for operators and planners.",
+    visual: "Traffic & Transport",
+    img: "/industries/traffic.jpg",
   },
 ];
 
 const TESTIMONIALS = [
   {
     quote:
-      "Meridian understood our regulatory constraints from day one — rare for a design studio working in fintech. The dashboard shipped on time and adoption jumped within a month.",
-    name: "Anastasia Bell",
-    role: "COO, Ledgerly",
+      "NexusRAG transformed how our team accesses clinical research. We get accurate, cited answers in seconds instead of spending hours in PubMed — it's changed our workflow entirely.",
+    name: "Dr. Priya Sharma",
+    role: "Head of Research, HealthFirst",
   },
   {
     quote:
-      "We build homes, not apps — so we needed a partner who could translate that into a site. Meridian nailed the tone and the project management was tight but realistic.",
-    name: "Owen Marsh",
-    role: "Founder, Kōrn Estates",
+      "The Finance RAG module gave our analysts instant grounded answers on regulatory filings and market data. Adoption was immediate — the accuracy is genuinely impressive.",
+    name: "Arjun Mehta",
+    role: "CTO, Ledger Analytics",
   },
 ];
 
 const SERVICES = [
   {
     num: "01",
-    icon: "Bi",
-    title: "Brand Identity",
-    desc: "Timeless, memorable identities that help businesses establish a consistent presence — whether that's a housing developer or a healthtech startup.",
+    icon: "RAG",
+    title: "Retrieval-Augmented Generation",
+    desc: "Ground every answer in your own documents. NexusRAG retrieves the most relevant passages and generates precise, cited responses — no hallucinations.",
   },
   {
     num: "02",
-    icon: "Pd",
-    title: "Product Design",
-    desc: "Functional, industry-aware product design — dashboards for fintech, booking flows for hospitality, portals for proptech.",
+    icon: "MI",
+    title: "Multi-Industry Knowledge Bases",
+    desc: "25 industry-specific corpora out of the box — Healthcare, Finance, Traffic, Manufacturing and more. Each tuned to its domain's vocabulary and standards.",
   },
   {
     num: "03",
-    icon: "Wd",
-    title: "Website Design",
-    desc: "A wide range of website experiences — promo, landing, portfolio and corporate sites, tuned to each sector's conventions.",
+    icon: "DS",
+    title: "Document Management",
+    desc: "Upload PDFs, CSVs, DOCX and more to any industry knowledge base. Share, query and cite them — all from one dashboard.",
   },
   {
     num: "04",
-    icon: "Dv",
-    title: "Web Development",
-    desc: "Jamstack builds for large, custom projects; no-code for smaller, faster-turnaround sites.",
+    icon: "API",
+    title: "API & Integrations",
+    desc: "Connect NexusRAG to your existing tools via REST API. Works with LangChain, Pinecone, Weaviate and major LLM providers.",
   },
 ];
 
 const CREATIVE = [
-  { key: "cc1", className: "creative-card cc1", top: "Ledger UI", bottom: "exploration" },
-  { key: "cc2", className: "creative-card cc2", top: "Estate", bottom: "brand system" },
-  { key: "cc3", className: "creative-card cc3", top: "Vitalis", bottom: "app concept" },
-  { key: "cc4", className: "creative-card cc4", top: "Type", bottom: "study 04" },
+  { key: "cc1", className: "creative-card cc1", top: "Healthcare", bottom: "RAG demo", img: "/industries/healthcare.jpg" },
+  { key: "cc2", className: "creative-card cc2", top: "Finance", bottom: "query engine", img: "/industries/finance.jpg" },
+  { key: "cc3", className: "creative-card cc3", top: "Traffic", bottom: "knowledge base", img: "/industries/traffic.jpg" },
+  { key: "cc4", className: "creative-card cc4", top: "Manufacturing", bottom: "AI assistant", img: "/industries/manufacturing.jpg" },
 ];
 
 /** Wraps children in an element that fades/slides in once it enters the viewport. */
@@ -1389,10 +1392,10 @@ export default function Home() {
   color: #fff;
 }
 .meridian-home .cc2 {
-  background: #e7c9a8;
+  color: #fff;
 }
 .meridian-home .cc3 {
-  background: #d7f5e8;
+  color: #fff;
 }
 .meridian-home .cc4 {
   background: #141928;
@@ -1420,6 +1423,38 @@ export default function Home() {
   background: linear-gradient(135deg, var(--indigo-2), var(--coral));
   margin: 0 4px;
   transform: translateY(-2px);
+}
+
+.meridian-home .about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+@media (max-width: 860px) {
+  .meridian-home .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+.meridian-home .about-img-wrap {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #080e1c;
+  box-shadow: 0 24px 60px -20px rgba(79,70,229,0.35), 0 0 0 1px rgba(79,70,229,0.15);
+  transition: transform 0.5s cubic-bezier(0.2,0.8,0.2,1), box-shadow 0.5s;
+}
+.meridian-home .about-img-wrap:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 36px 80px -20px rgba(79,70,229,0.45), 0 0 0 1px rgba(79,70,229,0.25);
+}
+.meridian-home .about-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 24px;
 }
 
 /* ===== footer ===== */
@@ -1534,13 +1569,13 @@ export default function Home() {
               <path d="M3 21 L21 3 L21 21 Z" fill="currentColor" />
             </svg>
           </span>
-          Meridian
+          NexusRAG
         </div>
         <div className="nav-links">
-          <a href="#work">Work</a>
-          <a href="#services">Services</a>
-          <a href="#expertise">Expertise</a>
-          <a href="#studio">Studio</a>
+          <a href="#work">Industries</a>
+          <a href="#services">Capabilities</a>
+          <a href="#expertise">Technology</a>
+          <a href="#studio">Team</a>
         </div>
         <div className="nav-auth">
           <Link to="/login" className="nav-login">
@@ -1549,9 +1584,9 @@ export default function Home() {
           <Link to="/signup" className="nav-signup">
             Sign up
           </Link>
-          <a href="#contact" className="nav-cta">
-            Start a project
-          </a>
+          <Link to="/chat" className="nav-cta">
+            Try NexusRAG free
+          </Link>
         </div>
       </nav>
 
@@ -1560,40 +1595,39 @@ export default function Home() {
         <div className="wrap">
           <div className="hero-top">
             <div>
-              <span className="eyebrow">Design &amp; Development Studio</span>
+              <span className="eyebrow">Multi-Industry AI Platform</span>
               <h1 className="headline">
-                One studio,
+                One platform,
                 <br />
                 <span className="thin">every</span> industry.
               </h1>
             </div>
             <div className="hero-sub">
-              We design and build digital products for real estate, fintech, healthtech and hospitality brands —
-              trading industry jargon for craft that actually converts.
+              NexusRAG delivers grounded, cited answers from your documents — across Healthcare, Finance, Traffic, Manufacturing and 21 more industries.
             </div>
           </div>
 
           <div className="hero-people">
             <div className="avatars">
-              <span>RK</span>
-              <span>AN</span>
-              <span>TS</span>
+              <span>HC</span>
+              <span>FI</span>
+              <span>TF</span>
             </div>
-            <a href="#work" className="watch-btn">
-              <span className="circ">▶</span> See our work
-            </a>
+            <Link to="/chat" className="watch-btn">
+              <span className="circ">▶</span> Start querying free
+            </Link>
           </div>
 
           <div className="industry-cycler">
-            Currently shaping products for
+            Currently answering questions for
             <IndustryCycler />
           </div>
 
           <div className="pills-row">
-            <div className="pill">Brand Identity</div>
-            <div className="pill">Product Design</div>
-            <div className="pill">Website Design</div>
-            <div className="pill">Web Development</div>
+            <div className="pill">RAG Pipeline</div>
+            <div className="pill">25 Industries</div>
+            <div className="pill">Document Upload</div>
+            <div className="pill">Cited Answers</div>
           </div>
         </div>
       </section>
@@ -1609,22 +1643,27 @@ export default function Home() {
       {/* WORK / STATS */}
       <section className="stats-section wrap" id="work">
         <Reveal>
-          <span className="sec-label">Track record</span>
+          <span className="sec-label">Impact so far</span>
           <div className="stat-row">
-            <Counter target={58} label="completed projects" />
-            <Counter target={6} label="industries served" />
-            <Counter target={19} label="awards & features" />
+            <Counter target={25} label="industries supported" />
+            <Counter target={10} label="million documents indexed" />
+            <Counter target={99} label="% answer accuracy" />
           </div>
           <p style={{ maxWidth: 420, color: "var(--slate)", fontSize: 14.5, lineHeight: 1.6 }}>
-            From a boutique real-estate developer's brand book to a fintech dashboard used by thousands — different
-            worlds, same rigor.
+            From healthcare diagnostics to financial regulations — NexusRAG retrieves the right answer from the right document, every time.
           </p>
         </Reveal>
 
         <RevealStagger className="project-grid">
           {PROJECTS.map((p) => (
-            <div className={p.className} key={p.key}>
-              <div className="pc-visual">{p.visual}</div>
+            <div className={p.className} key={p.key}
+              style={p.img ? {
+                backgroundImage: `url(${p.img})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              } : {}}
+            >
+              {!p.img && <div className="pc-visual">{p.visual}</div>}
               <div className="pc-chip">↗</div>
               <div className="pc-overlay">
                 <div className="pc-tag">{p.tag}</div>
@@ -1640,25 +1679,25 @@ export default function Home() {
       <section className="testi-section wrap">
         <Reveal as="div" className="sec-head">
           <div>
-            <span className="sec-label">Client feedback</span>
+            <span className="sec-label">User feedback</span>
             <h2>Testimonials</h2>
           </div>
-          <p>A satisfied client is the clearest signal of a good collaboration — across every sector we work in.</p>
+          <p>Real results from teams across industries who rely on NexusRAG every day.</p>
         </Reveal>
 
         <RevealStagger className="testi-grid">
           <div className="clutch-card">
             <div>
-              <div className="brand-mini">Clutch</div>
+              <div className="brand-mini">NexusRAG</div>
               <div className="stars">★★★★★</div>
             </div>
             <div>
               <p className="mono" style={{ fontSize: 12, color: "#c9cbdb", marginBottom: 14 }}>
-                5.0 average · 12 reviews
+                4.9 average · 38 reviews
               </p>
-              <a href="#" className="cta-mini">
-                View on Clutch
-              </a>
+              <Link to="/chat" className="cta-mini">
+                Try it free →
+              </Link>
             </div>
           </div>
 
@@ -1682,11 +1721,11 @@ export default function Home() {
         <Reveal as="div" className="clients-row">
           <span className="cl-label">Trusted by teams across sectors</span>
           <div className="clients-logos">
-            <span>Ledgerly</span>
-            <span>Kōrn Estates</span>
-            <span>Vitalis</span>
-            <span>Northbound</span>
-            <span>Clickl</span>
+            <span>HealthFirst</span>
+            <span>Ledger Analytics</span>
+            <span>TrafficIQ</span>
+            <span>AgriSense</span>
+            <span>LexAI</span>
           </div>
         </Reveal>
       </section>
@@ -1710,9 +1749,9 @@ export default function Home() {
         <Reveal as="div" className="sec-head">
           <div>
             <span className="sec-label">Capabilities</span>
-            <h2>Services</h2>
+            <h2>What NexusRAG does</h2>
           </div>
-          <p>Four disciplines, applied differently depending on who we're building for.</p>
+          <p>Four core capabilities that make NexusRAG the definitive multi-industry AI platform.</p>
         </Reveal>
 
         <RevealStagger className="services-grid">
@@ -1739,19 +1778,19 @@ export default function Home() {
               <div>
                 <div className="col-label">Specialization</div>
                 <ul>
-                  <li>Brand visualisation</li>
-                  <li>Marketing websites</li>
-                  <li>Corporate websites</li>
-                  <li>Digital products</li>
+                  <li>Retrieval-Augmented Generation</li>
+                  <li>Multi-industry NLP</li>
+                  <li>Document indexing &amp; search</li>
+                  <li>Cited answer generation</li>
                 </ul>
               </div>
               <div>
                 <div className="col-label">Industries</div>
                 <ul>
-                  <li>Real estate &amp; Proptech</li>
-                  <li>Fintech</li>
-                  <li>Healthtech</li>
-                  <li>Hospitality</li>
+                  <li>Healthcare &amp; Medicine</li>
+                  <li>Finance &amp; Banking</li>
+                  <li>Traffic &amp; Transport</li>
+                  <li>Manufacturing &amp; Agriculture</li>
                 </ul>
               </div>
             </div>
@@ -1760,20 +1799,19 @@ export default function Home() {
           <Reveal className="exp-card">
             <div className="exp-eyebrow">Why it works</div>
             <p>
-              Our team has shipped in enough different sectors to know that a fintech dashboard and a hotel booking
-              flow need completely different instincts — so that's what we bring.
+              Our RAG pipeline retrieves only the most relevant passages from your documents, then generates answers grounded in evidence — so every response is accurate, traceable and industry-specific.
             </p>
             <div className="exp-founder">
               <div className="who">
                 <div className="dot" />
                 <div>
-                  <div className="name">Priya Nadar</div>
-                  <div className="role">Founder &amp; CEO</div>
+                  <div className="name">Meghna Rao</div>
+                  <div className="role">Co-founder &amp; CTO</div>
                 </div>
               </div>
-              <a href="#contact" className="go">
+              <Link to="/chat" className="go">
                 →
-              </a>
+              </Link>
             </div>
           </Reveal>
         </div>
@@ -1790,19 +1828,19 @@ export default function Home() {
       {/* BEHIND THE SCENES */}
       <section className="scene-section wrap" id="studio">
         <Reveal className="scene-board">
-          <div className="bubble b1">Priya</div>
-          <div className="bubble tag b2">"ship it Friday"</div>
-          <div className="bubble tag b3">Owen</div>
-          <div className="bubble b4">Rian</div>
-          <div className="bubble tag b5">"almost"</div>
-          <div className="bubble b6">Tara</div>
+          <div className="bubble b1">Meghna</div>
+          <div className="bubble tag b2">"context retrieved"</div>
+          <div className="bubble tag b3">Arjun</div>
+          <div className="bubble b4">Ravi</div>
+          <div className="bubble tag b5">"accuracy: 99%"</div>
+          <div className="bubble b6">Priya</div>
           <div>
             <h3>
-              What's going on behind the scenes?
+              What's powering NexusRAG?
               <br />
-              Come say hi.
+              Come see inside.
             </h3>
-            <div className="sub">This is a studio, not a black box — we like to work in the open.</div>
+            <div className="sub">Open research, open models, grounded in your own data.</div>
           </div>
         </Reveal>
       </section>
@@ -1811,17 +1849,25 @@ export default function Home() {
       <section className="creative-section wrap">
         <Reveal as="div" className="sec-head">
           <div>
-            <span className="sec-label">Off the clock</span>
-            <h2>Our creativity doesn't end on projects only</h2>
+            <span className="sec-label">Live demos</span>
+            <h2>See NexusRAG in action across industries</h2>
           </div>
-          <a href="#" style={{ border: "1px solid var(--line)", padding: "9px 18px", borderRadius: 100, fontSize: 13 }}>
-            Dribbble ↗
-          </a>
+          <Link to="/chat" style={{ border: "1px solid var(--line)", padding: "9px 18px", borderRadius: 100, fontSize: 13 }}>
+            Try the demo →
+          </Link>
         </Reveal>
 
         <RevealStagger className="creative-grid">
           {CREATIVE.map((c) => (
-            <div className={c.className} key={c.key}>
+            <div
+              className={c.className}
+              key={c.key}
+              style={c.img ? {
+                backgroundImage: `linear-gradient(to top, rgba(5,8,18,0.75) 0%, rgba(5,8,18,0.15) 55%), url(${c.img})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              } : {}}
+            >
               <span>{c.top}</span>
               <span>{c.bottom}</span>
             </div>
@@ -1831,12 +1877,16 @@ export default function Home() {
 
       {/* ABOUT */}
       <Reveal as="section" className="about-section wrap">
-        <p className="about-text">
-          Starting as generalists who got bored designing the same template twice, we combined
-          <span className="chip" /> professional craft and genuine curiosity about how different industries actually
-          work
-          <span className="chip" /> to build a studio that adapts instead of repeating itself.
-        </p>
+        <div className="about-grid">
+          <p className="about-text">
+            Built by a team of ML engineers and domain experts who got tired of AI that hallucinates,
+            <span className="chip" /> we combined retrieval engineering and genuine curiosity about how different industries actually work
+            <span className="chip" /> to build a platform that grounds every answer in real documents.
+          </p>
+          <div className="about-img-wrap">
+            <img src="/industries/about.jpg" alt="NexusRAG RAG pipeline — documents to AI to grounded answer" loading="lazy" />
+          </div>
+        </div>
       </Reveal>
 
       {/* FOOTER */}
@@ -1844,40 +1894,40 @@ export default function Home() {
         <div className="wrap">
           <div className="foot-top">
             <div className="foot-cta">
-              <h2>We'd love to hear what you're building.</h2>
-              <a href="mailto:hello@meridian.studio" className="become">
-                Become a client →
-              </a>
+              <h2>Ready to query your documents with AI?</h2>
+              <Link to="/chat" className="become">
+                Start for free →
+              </Link>
               <div className="email">
-                Prefer email? Write to <a href="mailto:hello@meridian.studio">hello@meridian.studio</a>
+                Questions? Write to <a href="mailto:hello@nexusrag.ai">hello@nexusrag.ai</a>
               </div>
             </div>
             <div className="foot-cols">
               <div className="fc">
-                <h4>Studio</h4>
-                <p>Kanto Business Loft</p>
-                <p>Level 4, Warsaw, Poland</p>
-                <p>VAT: 5252837088</p>
+                <h4>Platform</h4>
+                <p>NexusRAG HQ</p>
+                <p>Bengaluru, India</p>
+                <p>hello@nexusrag.ai</p>
               </div>
               <div className="fc">
                 <h4>Follow</h4>
-                <a href="#">Behance ↗</a>
-                <a href="#">Dribbble ↗</a>
-                <a href="#">Clutch ↗</a>
+                <a href="#">GitHub ↗</a>
                 <a href="#">LinkedIn ↗</a>
+                <a href="#">Twitter / X ↗</a>
+                <a href="#">HuggingFace ↗</a>
               </div>
               <div className="fc">
                 <h4>Navigate</h4>
-                <a href="#work">Work</a>
-                <a href="#services">Services</a>
-                <a href="#expertise">Expertise</a>
-                <a href="#studio">Studio</a>
+                <a href="#work">Industries</a>
+                <a href="#services">Capabilities</a>
+                <a href="#expertise">Technology</a>
+                <a href="#studio">Team</a>
               </div>
             </div>
           </div>
           <div className="foot-bottom">
-            <div className="brand">Meridian</div>
-            <p>© 2026 Meridian Studio. All rights reserved.</p>
+            <div className="brand">NexusRAG</div>
+            <p>© 2026 NexusRAG. All rights reserved.</p>
           </div>
         </div>
       </footer>

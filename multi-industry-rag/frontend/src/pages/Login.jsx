@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
-const INDUSTRIES = ["Real Estate", "Fintech", "Healthtech", "Hospitality", "Proptech", "Edtech"];
+const INDUSTRIES = ["Healthcare", "Finance", "Traffic", "Manufacturing", "Agriculture", "Legal Services"];
 
 /** Rotating word, same cycler used on the homepage hero. */
 function IndustryCycler() {
@@ -624,36 +624,35 @@ export default function Login() {
                 <path d="M3 21 L21 3 L21 21 Z" fill="currentColor" />
               </svg>
             </span>
-            Meridian
+            NexusRAG
           </Link>
 
           <div className="auth-visual-mid">
             <span className="eyebrow">Welcome back</span>
             <h1>
-              Pick up where you
+              Ask smarter,
               <br />
-              <span className="thin">left off, in</span>
+              <span className="thin">across every</span> industry.
             </h1>
             <div className="auth-cycler">
-              Building for
+              Querying knowledge for
               <IndustryCycler />
             </div>
           </div>
 
-          <div className="bubble b1">"ship it Friday"</div>
-          <div className="bubble tag b2">Owen</div>
-          <div className="bubble b3">Priya</div>
+          <div className="bubble b1">"retrieving context"</div>
+          <div className="bubble tag b2">Dr. Priya</div>
+          <div className="bubble b3">Meghna</div>
 
           <div className="auth-quote">
             <p>
-              "Meridian understood our regulatory constraints from day one — the dashboard shipped on time and
-              adoption jumped within a month."
+              "NexusRAG gave our clinical team instant, cited answers from thousands of medical documents — the accuracy is remarkable."
             </p>
             <div className="who">
               <div className="dot" />
               <div>
-                <div className="name">Anastasia Bell</div>
-                <div className="role">COO, Ledgerly</div>
+                <div className="name">Dr. Priya Sharma</div>
+                <div className="role">Head of Research, HealthFirst</div>
               </div>
             </div>
           </div>
@@ -668,13 +667,13 @@ export default function Login() {
                   <path d="M3 21 L21 3 L21 21 Z" fill="currentColor" />
                 </svg>
               </span>
-              Meridian
+            NexusRAG
             </Link>
 
             <span className="sec-label">Sign in</span>
             <h2>Welcome back</h2>
             <div className="sub">
-              New to Meridian? <Link to="/signup">Create an account</Link>
+              New to NexusRAG? <Link to="/signup">Create an account</Link>
             </div>
 
             <form onSubmit={handleSubmit}>

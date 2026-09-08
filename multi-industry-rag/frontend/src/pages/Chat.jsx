@@ -59,7 +59,7 @@ function ShareModal({ msg, industry, onClose }) {
 
   const handleCopyLink = () => {
     const full = `${shareText}\n\n${window.location.href}`;
-    navigator.clipboard.writeText(full).catch(() => {});
+    navigator.clipboard.writeText(full).catch(() => { });
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -263,7 +263,7 @@ export default function Chat() {
   };
 
   const handleCopy = (id, text) => {
-    navigator.clipboard.writeText(text).catch(() => {});
+    navigator.clipboard.writeText(text).catch(() => { });
     setCopiedId(id);
     setTimeout(() => setCopiedId(null), 1800);
   };
@@ -656,6 +656,80 @@ export default function Chat() {
   font-family: "IBM Plex Mono", monospace;
   text-align: center;
 }
+
+/* ===== share modal ===== */
+.rag-chat .share-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(10,23,48,0.55); backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+}
+.rag-chat .share-box {
+  background: var(--panel); border-radius: 22px;
+  box-shadow: 0 30px 60px -20px rgba(10,23,48,0.4);
+  padding: 26px; width: 100%; max-width: 400px;
+}
+.rag-chat .share-hd {
+  display: flex; align-items: center;
+  justify-content: space-between; margin-bottom: 16px;
+}
+.rag-chat .share-title { font-size: 16px; font-weight: 700; font-family: "Space Grotesk", sans-serif; }
+.rag-chat .share-close {
+  width: 30px; height: 30px; border-radius: 50%;
+  border: 1px solid var(--line); background: var(--paper);
+  color: var(--slate); font-size: 14px; display: flex;
+  align-items: center; justify-content: center; cursor: pointer;
+  transition: background 0.2s;
+}
+.rag-chat .share-close:hover { background: var(--paper-2); }
+.rag-chat .share-preview {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: 12px; padding: 12px 14px; margin-bottom: 18px;
+}
+.rag-chat .share-preview-label {
+  font-size: 11.5px; font-weight: 600; color: var(--indigo);
+  margin-bottom: 6px;
+}
+.rag-chat .share-preview-text {
+  font-size: 13px; color: var(--slate); line-height: 1.5;
+}
+.rag-chat .share-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 8px; margin-bottom: 16px;
+}
+.rag-chat .social-btn {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 6px; padding: 12px 6px; border-radius: 12px;
+  border: 1.5px solid var(--line); background: var(--paper);
+  text-decoration: none; color: var(--ink);
+  transition: all 0.2s; cursor: pointer;
+}
+.rag-chat .social-btn:hover {
+  background: var(--sc, var(--indigo)); color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 14px -4px var(--sc, rgba(79,70,229,0.5));
+}
+.rag-chat .social-icon { font-size: 18px; font-weight: 700; line-height: 1; }
+.rag-chat .social-label { font-size: 10px; font-weight: 600; white-space: nowrap; }
+.rag-chat .share-divider {
+  text-align: center; color: var(--slate-l); font-size: 11.5px;
+  position: relative; margin-bottom: 14px;
+}
+.rag-chat .share-divider::before,
+.rag-chat .share-divider::after {
+  content: ""; position: absolute; top: 50%;
+  width: calc(50% - 18px); height: 1px; background: var(--line);
+}
+.rag-chat .share-divider::before { left: 0; }
+.rag-chat .share-divider::after { right: 0; }
+.rag-chat .copy-link-btn {
+  width: 100%; padding: 11px; border-radius: 10px;
+  border: 1.5px solid var(--line); background: var(--paper);
+  font-size: 13.5px; font-weight: 600; color: var(--ink);
+  cursor: pointer; transition: all 0.2s; font-family: inherit;
+}
+.rag-chat .copy-link-btn:hover { background: var(--paper-2); }
+.rag-chat .copy-link-btn.copied { background: #dcfce7; border-color: #86efac; color: #15803d; }
 `}</style>
 
       {/* ── NAV ── */}
@@ -859,13 +933,11 @@ export default function Chat() {
       </div>
       {/* ── Share Modal ── */}
       {shareMsg && (
-        <div className="rag-chat">
-          <ShareModal
-            msg={shareMsg.msg}
-            industry={shareMsg.industry}
-            onClose={() => setShareMsg(null)}
-          />
-        </div>
+        <ShareModal
+          msg={shareMsg.msg}
+          industry={shareMsg.industry}
+          onClose={() => setShareMsg(null)}
+        />
       )}
     </div>
   );
