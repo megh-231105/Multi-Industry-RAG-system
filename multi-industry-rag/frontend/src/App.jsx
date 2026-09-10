@@ -19,6 +19,7 @@ import HelpSupport   from "./pages/HelpSupport";
 
 // Admin pages (protected + adminOnly)
 import AdminDashboard from "./pages/AdminDashboard";
+import AdminUsers     from "./pages/AdminUsers";
 import Upload         from "./pages/Upload";
 import Collections    from "./pages/Collections";
 
@@ -61,6 +62,8 @@ export default function App() {
               element={<ProtectedRoute adminOnly><Upload /></ProtectedRoute>} />
             <Route path="/collections"
               element={<ProtectedRoute adminOnly><Collections /></ProtectedRoute>} />
+            <Route path="/admin/users"
+              element={<ProtectedRoute adminOnly><AdminUsers /></ProtectedRoute>} />
 
             {/* ── Catch-all ───────────────────────── */}
             <Route path="*" element={<Navigate to="/" replace />} />

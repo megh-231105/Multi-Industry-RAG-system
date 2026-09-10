@@ -461,9 +461,9 @@ export default function AdminDashboard() {
             <button className={`sb-item${activeTab === "pipeline" ? " active" : ""}`} onClick={() => setActiveTab("pipeline")}>
               <Icon name="settings" size={16} /> Pipeline Config
             </button>
-            <button className="sb-item">
+            <Link to="/admin/users" className="sb-item">
               <Icon name="users" size={16} /> Users
-            </button>
+            </Link>
           </div>
 
           <div className="sb-spacer" />
